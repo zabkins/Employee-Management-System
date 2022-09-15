@@ -1,1 +1,3 @@
 rootProject.name = 'Employee-Management-System'
+include 'data'
+
