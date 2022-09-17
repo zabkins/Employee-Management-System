@@ -1,9 +1,6 @@
 package pl.zarczynski.ems.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -27,4 +24,14 @@ public class Employee {
     @Enumerated(EnumType.STRING)
     private Position position;
     private int salary;
+
+    public Employee(String login, String password, String name, String lastName, LocalDate hiredSince, Position position, int salary) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.lastName = lastName;
+        this.hiredSince = hiredSince;
+        this.position = position;
+        this.salary = salary;
+    }
 }
