@@ -34,4 +34,14 @@ public class DefaultEmployeeService implements EmployeeService {
         employee.setHiredSince(LocalDate.now());
         return employeeRepository.save(employee);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public Employee updateEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
 }

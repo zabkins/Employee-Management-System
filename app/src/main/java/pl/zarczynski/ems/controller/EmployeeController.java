@@ -58,13 +58,12 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeConverter.convert(savedEmployee),HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
-    public Employee updateEmployee(@PathVariable Long id){
-        return null;
-    }
-
     @DeleteMapping("/{id}")
-    public void deleteEmployee(@PathVariable Long id){
-
+    public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable Long id){
+        if(!SecurityContextHolder.getContext().getAuthentication().getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"))){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        employeeService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
