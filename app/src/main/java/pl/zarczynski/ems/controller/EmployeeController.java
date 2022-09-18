@@ -49,7 +49,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<EmployeeModel> saveEmployee(NewEmployee newEmployee){
+    public ResponseEntity<EmployeeModel> saveEmployee(@RequestBody NewEmployee newEmployee){
         if(!SecurityContextHolder.getContext().getAuthentication().getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"))){
             return new ResponseEntity<>(null,HttpStatus.UNAUTHORIZED);
         }
