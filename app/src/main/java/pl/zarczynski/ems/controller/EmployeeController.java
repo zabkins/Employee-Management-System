@@ -53,9 +53,21 @@ public class EmployeeController {
         if(!SecurityContextHolder.getContext().getAuthentication().getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"))){
             return new ResponseEntity<>(null,HttpStatus.UNAUTHORIZED);
         }
+        if(newEmployeeContainsNullValues(newEmployee)){
+            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+        }
         Employee employee = newEmployeeConverter.convert(newEmployee);
         Employee savedEmployee = employeeService.saveEmployee(employee);
         return new ResponseEntity<>(employeeConverter.convert(savedEmployee),HttpStatus.OK);
+    }
+
+    private boolean newEmployeeContainsNullValues(NewEmployee newEmployee) {
+        if(newEmployee.getName() == null || newEmployee.getLastName() == null || newEmployee.getUsername() == null ||
+        newEmployee.getPassword() == null || newEmployee.getSalary() <= 0 || newEmployee.getPosition() == null){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @DeleteMapping("/{id}")
