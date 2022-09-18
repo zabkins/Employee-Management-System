@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -16,7 +15,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String login;
+    private String username;
     private String password;
     private String name;
     private String lastName;
@@ -26,7 +25,7 @@ public class Employee {
     private int salary;
 
     public Employee(String login, String password, String name, String lastName, LocalDate hiredSince, Position position, int salary) {
-        this.login = login;
+        this.username = login;
         this.password = password;
         this.name = name;
         this.lastName = lastName;
