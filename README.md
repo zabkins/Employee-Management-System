@@ -8,7 +8,7 @@ Application is split in two sub-modules:</p>
 <li class="has-line-data" data-line-start="7" data-line-end="8">DATA - contains domain classes</li>
 <li class="has-line-data" data-line-start="8" data-line-end="10">APP - contains application logic</li>
 </ul>
-<p class="has-line-data" data-line-start="10" data-line-end="11">H2 Console is exluded from Spring Security and can be visited without authenticating</p>
+<p class="has-line-data" data-line-start="10" data-line-end="11">H2 Console is excluded from Spring Security and can be visited without authenticating</p>
 <ul>
 <li class="has-line-data" data-line-start="11" data-line-end="12">to open the console visit <code>localhost:8080/h2-console</code></li>
 <li class="has-line-data" data-line-start="12" data-line-end="13">DB url is <code>jdbc:h2:mem:test</code></li>
@@ -68,7 +68,7 @@ Application is split in two sub-modules:</p>
 <p class="has-line-data" data-line-start="26" data-line-end="29">LOGIN ENDPOINT - while trying to login, POST method must be requested and in order<br>
 to authorize successfully, request must contain headers : ‘username’ and ‘password’ with values<br>
 corresponding to one of the employees in database.</p>
-<p class="has-line-data" data-line-start="30" data-line-end="31">LOGOUT ENDPOINT - to logout, only an empty GET call must be made and authorization will be removed.</p>
+<p class="has-line-data" data-line-start="30" data-line-end="31">LOGOUT ENDPOINT - to logout, only an empty GET call must be made and authentication will be removed.</p>
 <h2 class="code-line" data-line-start=32 data-line-end=33 ><a id="EmployeeModel__32"></a>EmployeeModel :</h2>
 <p class="has-line-data" data-line-start="33" data-line-end="34">JSON containing values as follows :</p>
 <ul>
